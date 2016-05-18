@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <client_script><![CDATA[  function() {
+    /* widget controller */
+    var c = this;
+
+    c.showUserTest = function (sys_id) {
+      c.data.action = 'getUserTest';
+      c.data.test_sys_id = sys_id;
+      c.server.update().then(function (response) {
+        c.test = response.test;
+      });
+    };
+
+    c.newUserTest = function (sys_id) {
+      if (confirm('Create new test?')) {
+        c.data.action = 'newUserTest';
+        c.data.test_case_id = sys_id;
+        c.server.update().then(function (response) {
+          c.test = response.test;
+        });
+      }
+    };
+
+    c.startTest = function () {
+      console.log('Start Test');
+      c.current_step = c.test.$$steps[0];
+      c.current_step_index = 0;
+    };
+
+    c.nextStep = function () {
+      console.log('Next step');
+      if (c.current_step_index + 1 < c.test.$$steps.length) {
+        c.current_step_index++;
+        c.current_step = c.test.$$steps[c.current_step_index]; 
+      } else {
+        console.log('COMPLETE!');
+        c.current_step = null;
+        c.current_step_index = null;
+        c.complete = true;
+      }
+    };
+
+    c.selectStep = function (index) {
+      console.log('Select step ' + index);
+      c.current_step_index = index;
+      c.current_step = c.test.$$steps[index];
+    };
+
+    c.saveStep = function () {
+      c.data.action = 'saveStep';
+      c.data.current_step = c.current_step;
+      return c.server.update();
+    };
+
+    c.pass = function () {
+      c.current_step.state = 'Pass';
+      c.saveStep().then(function () {
+        c.nextStep();
+      })
+    };
+
+    c.fail = function () {
+      var step = c.current_step;
+      step.state = 'Fail';
+      step.user_agent = window.navigator.userAgent;
+      step.url = window.location.toString();
+      step.user = 'Bob Marley';
+      step.roles = 'some_role,itil';
+      step.display_value = 'INC0010001';
+      c.saveStep().then(function () {
+        c.nextStep();
+      });
+    };
+
+    c.skip = function () {
+      c.current_step.state = 'Skipped';
+      c.saveStep().then(function () {
+        c.nextStep();
+      });
+    };
+
+  }]]></client_script>
+        <controller_as>c</controller_as>
+        <css/>
+        <data_table>sp_instance</data_table>
+        <demo_data>data.test_versions = [
+	{
+		name:'Name', 
+		version:'1'
+	}
+];</demo_data>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>tested_badness</id>
+        <internal>false</internal>
+        <link/>
+        <name>Tested Badness</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+  /* populate the 'data' object */
+  /* e.g., data.table = $sp.getValue('table'); */
+
+  var action;
+
+  action = input ? input.action : '';
+  if (!action) action = 'getTestCaseVersions';
+
+  data.action = action;
+
+  switch (action) {
+    case 'getUserTest':
+      data.test = getUserTest(input.test_sys_id);
+      break;
+    case 'newUserTest':
+      data.test = newUserTest(input.test_case_id);
+      break;
+    case 'saveStep':
+      saveStep(input.current_step);
+      break;
+    case 'getTestCaseVersions':
+    default:
+      data.test_versions = getTestCaseVersions();
+      break;
+  }
+
+  /**
+    summary:
+      Get a user test
+    returns: [Object]
+  **/
+  function getUserTest(user_test_id) {
+    var user_steps = [],
+        user_test,
+        user_step,
+        result,
+        tmp,
+        gr;
+
+    user_test = _getGlideRecord('x_snc_snd_tested_user_test_case', 'sys_id=' + user_test_id, 1);
+    if (user_test.next()) {
+
+      result = _formatUserTest(user_test);
+      result.test_case_version = _formatTestCaseVersion(_getRecord('x_snc_snd_tested_test_case_version', 'sys_id=' + result.test_case_version));
+      result.$$steps = [];
+
+      user_step = _getGlideRecord('x_snc_snd_tested_user_test_step', 'user_test=' + user_test.sys_id);
+      while (user_step.next()) {
+        tmp = _formatUserTestStep(user_step);
+        tmp.test_step = _formatTestStep(tmp.test_step);
+        result.$$steps.push(tmp);
+      }
+
+    }
+
+    return result;
+  }
+
+  /**
+    summary:
+      Creates a new user test and the relevant test steps.
+    returns: [Object]
+  **/
+  function newUserTest(test_case_version) {
+    var test_case_version,
+        user_test,
+        user_step,
+        result,
+        step,
+        tmp;
+
+    // create the user test using the test case
+    user_test = new GlideRecord('x_snc_snd_tested_user_test_case');
+    user_test.test_case_version = test_case_version;
+    user_test.user = gs.getUserID();
+    user_test.insert();
+
+    result = _formatUserTest(user_test);
+    result.test_case_version = _formatTestCaseVersion(_getRecord('x_snc_snd_tested_test_case_version', 'sys_id=' + test_case_version));
+    result.$$steps = [];
+
+    // init the user test step inserter
+    user_step = new GlideRecord('x_snc_snd_tested_user_test_step');
+    user_step.user_test_case = user_test.sys_id;
+    
+    // get all the test steps for the test case
+    step = _getGlideRecord('x_snc_snd_tested_test_step', 'test_case_version=' + test_case_version + '^ORDERBYnumber');
+
+    // insert a user test step for each step
+    while (step.next()) {
+      
+      user_step.test_step = step.sys_id;
+      user_step.insert();
+
+      tmp = _formatUserTestStep(user_step);
+      tmp.test_step = _formatTestStep(step);
+      result.$$steps.push(tmp);
+
+    }
+
+    return result;
+  }
+
+  /**
+    summary:
+      Get all the available test case versions
+    returns: [Array]
+      Array of test case version objects, ordered by name
+  **/
+  function getTestCaseVersions() {
+    var gr = new GlideRecord('x_snc_snd_tested_test_case_version');
+    gr.addQuery('active', '=', true);
+    gr.orderBy('name');
+    gr.query();
+    
+    var tmp = [];
+    while (gr.next()) {
+      tmp.push(_formatTestCaseVersion(gr));
+    }
+    return tmp;
+  }
+
+  function saveStep(step) {
+    var gr = new GlideRecord('x_snc_snd_tested_user_test_step');
+    gr.addQuery('sys_id', '=', step.sys_id);
+    gr.setLimit(1);
+    gr.query();
+    if (gr.next()) {
+      gr.state = step.state;
+      gr.user_agent = step.user_agent;
+      gr.url = step.url;
+      gr.user_name = step.user;
+      gr.roles = step.roles;
+      gr.display_value = step.display_value;
+      gr.update();
+    }
+  }
+
+  /************************************
+    DATA FORMATTERS
+   ************************************/
+
+  function _formatTestCase(gr) {
+    return {
+      sys_id: gr.getValue('sys_id'),
+      name: gr.getValue('name'),
+      description: gr.getValue('description')
+    };
+  }
+
+  function _formatTestCaseVersion(gr) {
+    return {
+      sys_id: gr.getValue('sys_id'),
+      name: gr.getValue('name'),
+      version: gr.getValue('version'),
+      active: gr.getValue('active'),
+      test_case: gr.getValue('test_case')
+    };
+  }
+
+  function _formatTestStep(gr) {
+    return {
+      sys_id: gr.getValue('sys_id'),
+      number:             gr.getValue('number'),
+      test_case_version:  gr.getValue('test_case_version'),
+      expected_result:    gr.getValue('expected_result'),
+      instructions:       gr.getValue('instructions'),
+      short_description:  gr.getValue('short_description')
+    };
+  }
+
+  function _formatUserTest(gr) {
+    return {
+      sys_id: gr.getValue('sys_id'),
+      number: gr.getValue('number'),
+      user: gr.getValue('user'),
+      state: gr.getValue('state'),
+      test_case_version: gr.getValue('test_case_version')
+    };
+  }
+
+  function _formatUserTestStep(gr) {
+    return {
+      sys_id: gr.getValue('sys_id'),
+      user_name:        gr.getValue('user_name'),
+      user_agent:       gr.getValue('user_agent'),
+      display_value:    gr.getValue('display_value'),
+      url:              gr.getValue('url'),
+      roles:            gr.getValue('roles'),
+      test_step:        gr.getValue('test_step'),
+      user_test_case:   gr.getValue('user_test_case'),
+      state:            gr.getDisplayValue('state'),
+      browser:          gr.getValue('browser'),
+      browser_version:  gr.getValue('browser_version')
+    };
+  }
+
+  /************************************
+    HELPERS
+   ************************************/
+
+  function _getGlideRecord(table, query, limit) {
+    var gr = new GlideRecord(table);
+    if (query) {
+      gr.addQuery(query);
+    }
+    if (limit) {
+      gr.setLimit(limit);
+    }
+    gr.query();
+    return gr;
+  }
+
+  function _getRecord(table, query) {
+    var gr = _getGlideRecord(table, query, 1);
+    gr.next();
+    return gr;
+  }
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2016-05-18 02:26:19</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>58f336cc4fe3920010ce01b18110c70a</sys_id>
+        <sys_mod_count>77</sys_mod_count>
+        <sys_name>Tested Badness</sys_name>
+        <sys_package display_value="SND Tested" source="x_snc_snd_tested">b20d02084fa3920010ce01b18110c7bc</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="SND Tested">b20d02084fa3920010ce01b18110c7bc</sys_scope>
+        <sys_update_name>sp_widget_58f336cc4fe3920010ce01b18110c70a</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2016-05-18 07:05:31</sys_updated_on>
+        <template><![CDATA[<div class="row">
+  <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+
+    <div ng-if="!c.test">
+      <h2>Start a Test</h2>
+      <div class="list-group">
+
+        <a href="javascript:void(0)" ng-repeat="test_case in data.test_versions" ng-bind="test_case.name" ng-click="c.newUserTest(test_case.sys_id)" class="list-group-item"></a>
+      </div>
+    </div>
+
+    <div ng-if="data.test">
+
+      <h3 ng-bind="data.test.test_case_version.name"></h3>
+      <p ng-bind="data.test.test_case_version.test_case.description"></p>
+
+      <div class="row" ng-if="!c.complete">
+        <div class="col-xs-12">
+          <a ng-click="c.startTest()" class="pull-right">Start</a>
+        </div>
+      </div>
+
+      <div class="alert alert-success" ng-if="c.complete">
+        Complete! You rock!
+      </div>
+
+      <div ng-if="!c.complete">
+        <div class="list-group" ng-if="!c.current_step">
+          <a class="list-group-item"
+            ng-click="c.selectStep($index)"
+            ng-bind="step.test_step.short_description"
+            ng-repeat="step in data.test.$$steps"></a>
+        </div>
+
+        <div class="panel" ng-if="c.current_step">
+          <div class="panel-heading">
+            <h3 class="panel-title" ng-bind="'Step ' + (c.current_step_index + 1) + ': ' + c.current_step.test_step.short_description"></h3>
+          </div>
+          <div class="panel-body">
+            <p ng-bind="c.current_step.test_step.instructions"></p>
+            <div class="input-group">
+              <button type="btn btn-success" ng-click="c.pass()">Pass</button>
+              <button type="btn btn-danger" ng-click="c.fail()">Fail</button>
+              <button type="btn btn-default" ng-click="c.skip()">Skip</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>]]></template>
+    </sp_widget>
+</record_update>

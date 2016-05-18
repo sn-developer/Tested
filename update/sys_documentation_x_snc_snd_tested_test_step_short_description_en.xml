@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_documentation element="short_description" label="Short description" language="en" table="x_snc_snd_tested_test_step">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>short_description</element>
+            <help/>
+            <hint/>
+            <label>Short description</label>
+            <language>en</language>
+            <name>x_snc_snd_tested_test_step</name>
+            <plural>Short descriptions</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2016-05-18 05:46:01</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_id>1da1a7804f67920010ce01b18110c734</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Short description</sys_name>
+            <sys_package display_value="SND Tested" source="x_snc_snd_tested">b20d02084fa3920010ce01b18110c7bc</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="SND Tested">b20d02084fa3920010ce01b18110c7bc</sys_scope>
+            <sys_update_name>sys_documentation_x_snc_snd_tested_test_step_short_description_en</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2016-05-18 05:46:01</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

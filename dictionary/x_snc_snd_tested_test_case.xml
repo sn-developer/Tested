@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="Test Case" max_length="40" name="x_snc_snd_tested_test_case" type="collection">
+        <element label="Description" max_length="4000" name="description" type="string"/>
+        <element label="Name" max_length="255" name="name" type="string"/>
+    </element>
+</database>

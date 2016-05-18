@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="User Test Step" max_length="40" name="x_snc_snd_tested_user_test_step" type="collection">
+        <element choice="1" label="Browser" max_length="40" name="browser" type="choice">
+            <choice>
+                <element label="Safari" sequence="0" value="Safari"/>
+                <element label="Chrome" sequence="1" value="Chrome"/>
+                <element label="Firefox" sequence="2" value="Firefox"/>
+                <element label="Explorer" sequence="3" value="Internet Explorer"/>
+            </choice>
+        </element>
+        <element label="Browser version" max_length="40" name="browser_version" type="string"/>
+        <element label="Display value" max_length="100" name="display_value" type="string"/>
+        <element default="javascript:global.getNextObjNumberPadded();" display="true" label="Number" max_length="40" name="number" read_only="true" type="string"/>
+        <element label="Roles" max_length="4000" name="roles" type="string"/>
+        <element choice="1" default="In Progress" label="State" max_length="40" name="state" type="choice">
+            <choice>
+                <element label="In Progress" sequence="0" value="In Progress"/>
+                <element label="Pass" sequence="1" value="Pass"/>
+                <element label="Fail" sequence="2" value="Fail"/>
+                <element label="Skipped" sequence="3" value="Skipped"/>
+            </choice>
+        </element>
+        <element label="Test step" max_length="32" name="test_step" reference="x_snc_snd_tested_test_step" type="reference"/>
+        <element label="URL" max_length="1024" name="url" type="url"/>
+        <element label="User agent" max_length="255" name="user_agent" type="string"/>
+        <element label="User name" max_length="100" name="user_name" type="string"/>
+        <element label="User test case" max_length="32" name="user_test_case" reference="x_snc_snd_tested_user_test_case" reference_cascade_rule="delete" type="reference"/>
+        <index name="index">
+            <element name="test_step"/>
+        </index>
+        <index name="index2">
+            <element name="user_test_case"/>
+        </index>
+    </element>
+</database>

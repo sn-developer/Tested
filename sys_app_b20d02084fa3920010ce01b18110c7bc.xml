@@ -6,7 +6,7 @@
         <js_level>helsinki_es5</js_level>
         <licensable>true</licensable>
         <logo/>
-        <menu/>
+        <menu display_value="SND Tested">3d501e484fa3920010ce01b18110c7ed</menu>
         <name>SND Tested</name>
         <private>false</private>
         <restrict_table_access>false</restrict_table_access>
@@ -22,12 +22,12 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2016-05-17 23:36:22</sys_created_on>
         <sys_id>b20d02084fa3920010ce01b18110c7bc</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>2</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2016-05-17 23:36:22</sys_updated_on>
+        <sys_updated_on>2016-05-17 23:58:34</sys_updated_on>
         <template/>
         <trackable>true</trackable>
-        <user_role/>
+        <user_role display_value="x_snc_snd_tested.user" name="x_snc_snd_tested.user">76a15e884fa3920010ce01b18110c746</user_role>
         <vendor/>
         <vendor_prefix/>
         <version>1.0.0</version>

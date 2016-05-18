@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_portal">
+    <sp_portal action="INSERT_OR_UPDATE">
+        <css_variables/>
+        <default>false</default>
+        <homepage display_value="tested_spa">a6e1b68c4fe3920010ce01b18110c767</homepage>
+        <icon/>
+        <kb_knowledge_base/>
+        <kb_knowledge_page/>
+        <login_page display_value="login">6995a144cb11120000f8d856634c9c25</login_page>
+        <logo/>
+        <notfound_page display_value="404">3c2c9063cb11020000f8d856634c9c1f</notfound_page>
+        <quick_start_config/>
+        <sc_catalog/>
+        <sc_catalog_page/>
+        <sp_chat_queue/>
+        <sp_rectangle_menu display_value="Tested Header Menu">da0ffec04f27920010ce01b18110c796</sp_rectangle_menu>
+        <sqanda_knowledge_base/>
+        <sys_class_name>sp_portal</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2016-05-18 01:49:43</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>895b2a844fe3920010ce01b18110c757</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name>Tested</sys_name>
+        <sys_package display_value="SND Tested" source="x_snc_snd_tested">b20d02084fa3920010ce01b18110c7bc</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="SND Tested">b20d02084fa3920010ce01b18110c7bc</sys_scope>
+        <sys_update_name>sp_portal_895b2a844fe3920010ce01b18110c757</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2016-05-18 03:15:34</sys_updated_on>
+        <theme display_value="Stock">79315153cb33310000f8d856634c9c4b</theme>
+        <title>Tested</title>
+        <url_suffix>tested</url_suffix>
+    </sp_portal>
+</record_update>

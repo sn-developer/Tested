@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_ui_list parent="" relationship="" sys_domain="global" table="rm_defect" version="2" view="scrum">
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>number</element>
+            <list_id display_value="rm_defect" element="NULL" name="rm_defect" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">3ef5289b7f000001562f96e457ca35a3</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>0</position>
+            <sum>false</sum>
+            <sys_created_by>jerrod.maint</sys_created_by>
+            <sys_created_on>2010-08-04 21:15:08</sys_created_on>
+            <sys_id>3ef5289d7f00000125d374db8adb608d</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>jerrod.maint</sys_updated_by>
+            <sys_updated_on>2010-08-04 21:15:08</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>short_description</element>
+            <list_id display_value="rm_defect" element="NULL" name="rm_defect" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">3ef5289b7f000001562f96e457ca35a3</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>1</position>
+            <sum>false</sum>
+            <sys_created_by>jerrod.maint</sys_created_by>
+            <sys_created_on>2010-08-04 21:15:08</sys_created_on>
+            <sys_id>3ef5289e7f00000167e310ac8a3acfcd</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>jerrod.maint</sys_updated_by>
+            <sys_updated_on>2010-08-04 21:15:08</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>priority</element>
+            <list_id display_value="rm_defect" element="NULL" name="rm_defect" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">3ef5289b7f000001562f96e457ca35a3</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>2</position>
+            <sum>false</sum>
+            <sys_created_by>jerrod.maint</sys_created_by>
+            <sys_created_on>2010-08-04 21:15:08</sys_created_on>
+            <sys_id>3ef5289f7f00000158201138abbc454d</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>jerrod.maint</sys_updated_by>
+            <sys_updated_on>2010-08-04 21:15:08</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>state</element>
+            <list_id display_value="rm_defect" element="NULL" name="rm_defect" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">3ef5289b7f000001562f96e457ca35a3</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>3</position>
+            <sum>false</sum>
+            <sys_created_by>jerrod.maint</sys_created_by>
+            <sys_created_on>2010-08-04 21:15:08</sys_created_on>
+            <sys_id>3ef528a07f000001505eba3b56719ed0</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>jerrod.maint</sys_updated_by>
+            <sys_updated_on>2010-08-04 21:15:08</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element/>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <name>rm_defect</name>
+            <parent/>
+            <position/>
+            <relationship/>
+            <sum>false</sum>
+            <sys_class_name>sys_ui_list</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2016-05-18 07:02:32</sys_created_on>
+            <sys_customer_update>true</sys_customer_update>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>5223fbc84f67920010ce01b18110c70c</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>rm_defect</sys_name>
+            <sys_package display_value="SND Tested" source="x_snc_snd_tested">b20d02084fa3920010ce01b18110c7bc</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="SND Tested">b20d02084fa3920010ce01b18110c7bc</sys_scope>
+            <sys_update_name>sys_ui_list_rm_defect_scrum</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2016-05-18 07:02:32</sys_updated_on>
+            <sys_user display_value="System Administrator">6816f79cc0a8016401c5a33be04be441</sys_user>
+            <view display_value="SCRUM" name="scrum">7d1ba14e7f00000122b0bf6a282d2247</view>
+            <view_name/>
+        </sys_ui_list>
+    </sys_ui_list>
+</record_update>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_user_role">
+    <sys_user_role action="INSERT_OR_UPDATE">
+        <assignable_by/>
+        <can_delegate>true</can_delegate>
+        <description>Administrator role for the SND Tester application. Grants access to the test script configuration modules</description>
+        <elevated_privilege>false</elevated_privilege>
+        <grantable>true</grantable>
+        <includes_roles/>
+        <name>x_snc_snd_tested.admin</name>
+        <suffix>admin</suffix>
+        <sys_class_name>sys_user_role</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2016-05-18 02:19:22</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>6212fa8c4fe3920010ce01b18110c7b0</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_snc_snd_tested.admin</sys_name>
+        <sys_package display_value="SND Tested" source="x_snc_snd_tested">b20d02084fa3920010ce01b18110c7bc</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="SND Tested">b20d02084fa3920010ce01b18110c7bc</sys_scope>
+        <sys_update_name>sys_user_role_6212fa8c4fe3920010ce01b18110c7b0</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2016-05-18 02:19:22</sys_updated_on>
+    </sys_user_role>
+</record_update>

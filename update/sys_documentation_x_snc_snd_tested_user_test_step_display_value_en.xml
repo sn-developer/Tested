@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_documentation element="display_value" label="Display value" language="en" table="x_snc_snd_tested_user_test_step">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>display_value</element>
+            <help/>
+            <hint/>
+            <label>Display value</label>
+            <language>en</language>
+            <name>x_snc_snd_tested_user_test_step</name>
+            <plural>Display values</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2016-05-18 00:04:12</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_id>e663960c4fa3920010ce01b18110c76c</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Display value</sys_name>
+            <sys_package display_value="SND Tested" source="x_snc_snd_tested">b20d02084fa3920010ce01b18110c7bc</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="SND Tested">b20d02084fa3920010ce01b18110c7bc</sys_scope>
+            <sys_update_name>sys_documentation_x_snc_snd_tested_user_test_step_display_value_en</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2016-05-18 00:04:12</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

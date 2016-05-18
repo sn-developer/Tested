@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="Test Step" max_length="40" name="x_snc_snd_tested_test_step" type="collection">
+        <element label="Expected result" max_length="4000" name="expected_result" type="string"/>
+        <element label="Instructions" max_length="4000" name="instructions" type="string"/>
+        <element label="Number" max_length="40" name="number" type="string"/>
+        <element display="true" label="Short description" max_length="255" name="short_description" type="string"/>
+        <element label="Stories" max_length="4000" name="stories" reference="rm_story" type="glide_list"/>
+        <element label="Test case" max_length="32" name="test_case" reference="x_snc_snd_tested_test_case" type="reference"/>
+        <element label="Test case version" max_length="32" name="test_case_version" reference="x_snc_snd_tested_test_case_version" reference_qual="active=true^EQ" reference_qual_condition="active=true^EQ" type="reference"/>
+        <index name="index">
+            <element name="test_case_version"/>
+        </index>
+        <index name="index2">
+            <element name="test_case"/>
+        </index>
+    </element>
+</database>

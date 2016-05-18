@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="Test Case Version" max_length="40" name="x_snc_snd_tested_test_case_version" type="collection">
+        <element default="true" label="Active" max_length="40" name="active" type="boolean"/>
+        <element attributes="edge_encryption_enabled=true" display="true" label="Name" max_length="40" name="name" read_only="true" type="string"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" label="State" max_length="40" name="state" type="string">
+            <choice/>
+        </element>
+        <element label="Test case" max_length="32" name="test_case" reference="x_snc_snd_tested_test_case" type="reference"/>
+        <element default="1.0" label="Version" max_length="40" name="version" type="float"/>
+        <index name="index">
+            <element name="test_case"/>
+        </index>
+    </element>
+</database>

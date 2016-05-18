@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_choice action="INSERT_OR_UPDATE" field="browser" table="x_snc_snd_tested_user_test_step" version="3">
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>browser</element>
+            <hint/>
+            <inactive>true</inactive>
+            <label>Google</label>
+            <language>en</language>
+            <name>x_snc_snd_tested_user_test_step</name>
+            <sequence>0</sequence>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2016-05-18 01:58:46</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>64adeac44fe3920010ce01b18110c71f</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2016-05-18 01:58:46</sys_updated_on>
+            <value>Google</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>browser</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Safari</label>
+            <language>en</language>
+            <name>x_snc_snd_tested_user_test_step</name>
+            <sequence>0</sequence>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2016-05-18 01:58:46</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>e0adeac44fe3920010ce01b18110c71e</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2016-05-18 01:58:46</sys_updated_on>
+            <value>Safari</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>browser</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Chrome</label>
+            <language>en</language>
+            <name>x_snc_snd_tested_user_test_step</name>
+            <sequence>1</sequence>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2016-05-18 01:58:46</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>68adeac44fe3920010ce01b18110c71e</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2016-05-18 01:58:46</sys_updated_on>
+            <value>Chrome</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>browser</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Firefox</label>
+            <language>en</language>
+            <name>x_snc_snd_tested_user_test_step</name>
+            <sequence>2</sequence>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2016-05-18 01:58:46</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>6cadeac44fe3920010ce01b18110c71e</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2016-05-18 01:58:46</sys_updated_on>
+            <value>Firefox</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>browser</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Explorer</label>
+            <language>en</language>
+            <name>x_snc_snd_tested_user_test_step</name>
+            <sequence>3</sequence>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2016-05-18 01:58:46</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>60adeac44fe3920010ce01b18110c71f</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2016-05-18 03:07:55</sys_updated_on>
+            <value>Internet Explorer</value>
+        </sys_choice>
+        <sys_choice_set action="INSERT_OR_UPDATE">
+            <element>browser</element>
+            <name>x_snc_snd_tested_user_test_step</name>
+            <sys_class_name>sys_choice_set</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2016-05-18 01:58:46</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_id>a4adeac44fe3920010ce01b18110c71e</sys_id>
+            <sys_mod_count>2</sys_mod_count>
+            <sys_name>browser</sys_name>
+            <sys_package display_value="SND Tested" source="x_snc_snd_tested">b20d02084fa3920010ce01b18110c7bc</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="SND Tested">b20d02084fa3920010ce01b18110c7bc</sys_scope>
+            <sys_update_name>sys_choice_x_snc_snd_tested_user_test_step_browser</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2016-05-18 03:07:55</sys_updated_on>
+        </sys_choice_set>
+    </sys_choice>
+</record_update>

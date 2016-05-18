@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_container">
+    <sp_container action="INSERT_OR_UPDATE">
+        <background_color/>
+        <background_image/>
+        <background_style>default</background_style>
+        <bootstrap_alt>false</bootstrap_alt>
+        <class_name/>
+        <container_class_name/>
+        <name>Tested SPA - Container 10</name>
+        <order>10</order>
+        <sp_page display_value="tested_spa">a6e1b68c4fe3920010ce01b18110c767</sp_page>
+        <subheader>false</subheader>
+        <sys_class_name>sp_container</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2016-05-18 02:19:14</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>9c52f28c4fe3920010ce01b18110c746</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Tested SPA - Container 10</sys_name>
+        <sys_package display_value="SND Tested" source="x_snc_snd_tested">b20d02084fa3920010ce01b18110c7bc</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="SND Tested">b20d02084fa3920010ce01b18110c7bc</sys_scope>
+        <sys_update_name>sp_container_9c52f28c4fe3920010ce01b18110c746</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2016-05-18 03:01:52</sys_updated_on>
+        <width>container</width>
+    </sp_container>
+</record_update>
